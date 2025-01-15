@@ -13,7 +13,9 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/serhat-m/core-i18n.git"
@@ -53,6 +55,9 @@
     "language"
   ],
   "lint-staged": {
-    "**/*.{js,mjs,cjs,ts,mts,jsx,tsx,json}": ["biome check --write"]
-  }
+    "**/*.{js,mjs,cjs,ts,mts,jsx,tsx,json}": [
+      "biome check --write"
+    ]
+  },
+  "version": "1.1.0"
 }
