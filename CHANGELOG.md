@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/serhat-m/core-i18n/compare/v1.1.0...v1.1.1) (2025-01-15)
+
+
+### Core
+
+* add readme ([bdee164](https://github.com/serhat-m/core-i18n/commit/bdee1640d80ca6770f0b564415fd99e8b6f9c95a))
+
 ## [1.1.0](https://github.com/serhat-m/core-i18n/compare/v1.0.0...v1.1.0) (2025-01-15)
 
 
