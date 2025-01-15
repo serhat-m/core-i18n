@@ -71,7 +71,6 @@ const messages = {
 
 const t = createTranslate(messages, "en-EN")
 t("availability", { count: 1 }) // Output: "Only one item available"
-// See 
 ```
 
 Special translations for `{ count: 0 }` are allowed to enable more natural language. If a `#zero` entry exists, it replaces the default plural form:
