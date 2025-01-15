@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/serhat-m/core-i18n/compare/v1.1.1...v1.1.2) (2025-01-15)
+
+
+### Miscellaneous
+
+* rename publish workflow ([5286c1a](https://github.com/serhat-m/core-i18n/commit/5286c1a2e9f10526c1eaa2fb0df6858effd79526))
+
 ## [1.1.1](https://github.com/serhat-m/core-i18n/compare/v1.1.0...v1.1.1) (2025-01-15)
 
 
