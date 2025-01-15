@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/serhat-m/core-i18n/compare/v1.1.3...v1.1.4) (2025-01-15)
+
+
+### Bug Fixes
+
+* readme typo ([bf83a5c](https://github.com/serhat-m/core-i18n/commit/bf83a5c3352e5082d00c16143e00bb6251732770))
+
 ## [1.1.3](https://github.com/serhat-m/core-i18n/compare/v1.1.2...v1.1.3) (2025-01-15)
 
 
