@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.3](https://github.com/serhat-m/core-i18n/compare/v1.1.2...v1.1.3) (2025-01-15)
+
+
+### Bug Fixes
+
+* package path in package json ([c306441](https://github.com/serhat-m/core-i18n/commit/c306441ba70698371bac8440d328a36e77874ed2))
+* publish workflow deploy step ([20f535f](https://github.com/serhat-m/core-i18n/commit/20f535f104d6379526c6a87b0b5ceeae78b759d2))
+
 ## [1.1.2](https://github.com/serhat-m/core-i18n/compare/v1.1.1...v1.1.2) (2025-01-15)
 
 
