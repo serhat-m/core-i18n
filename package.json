@@ -10,12 +10,21 @@
   "private": false,
   "author": "Serhat Mutlu",
   "license": "MIT",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/serhat-m/core-i18n.git"
@@ -55,9 +64,7 @@
     "language"
   ],
   "lint-staged": {
-    "**/*.{js,mjs,cjs,ts,mts,jsx,tsx,json}": [
-      "biome check --write"
-    ]
+    "**/*.{js,mjs,cjs,ts,mts,jsx,tsx,json}": ["biome check --write"]
   },
   "version": "1.1.4"
 }
