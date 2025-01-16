@@ -10,16 +10,19 @@ Creates a translation function that retrieves localized messages based on a spec
 
 - **`messages`** `Record<string, Record<string, unknown>>`
     
-    Object with locale keys and their corresponding messages. Use `as const` to ensure that message values are inferred as literal types for better type safety: `{ "de-DE": {...} as const, "en-EN": {...} as const }`
+    Object with [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php) keys and their corresponding messages. Use `as const` to ensure that message values are inferred as literal types for better type safety: `{ "de-DE": {...} as const, "en-EN": {...} as const }`
     
 - **`locale`** `string`
     
-    [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php)
+    key of **`messages`**
     
 
 ### Basic usage
 
 ```tsx
+import { createTranslate } from "core-i18n"
+// const { createTranslate } = require("core-i18n") // legacy way
+
 // Define messages
 const messages = {
   "en-EN": { email: "Email Address" } as const,
@@ -30,7 +33,8 @@ const messages = {
 const t = createTranslate(messages, "en-EN")
 
 // Translate
-t("email") // Output: "Email Address"
+const translation = t("email")
+// Result: "Email Address"
 ```
 
 ### Placeholders
@@ -47,7 +51,9 @@ const messages = {
 }
 
 const t = createTranslate(messages, "en-EN")
-t("farewell", { city: "Berlin" }) // Output: "Goodbye, Berlin!"
+
+const translation = t("farewell", { city: "Berlin" })
+// Result: "Goodbye, Berlin!"
 ```
 
 ### Cardinal plurals (default)
@@ -70,7 +76,9 @@ const messages = {
 }
 
 const t = createTranslate(messages, "en-EN")
-t("availability", { count: 1 }) // Output: "Only one item available"
+
+const translation = t("availability", { count: 1 })
+// Result: "Only one item available"
 ```
 
 Special translations for `{ count: 0 }` are allowed to enable more natural language. If a `#zero` entry exists, it replaces the default plural form:
@@ -84,7 +92,9 @@ const messages = {
 }
 
 const t = createTranslate(messages, "en-EN")
-t("apple", { count: 0 }) // Output: "You have no apples."
+
+const translation = t("apple", { count: 0 })
+// Result: "You have no apples."
 ```
 
 ### Ordinal plurals
@@ -103,7 +113,9 @@ const messages = {
 }
 
 const t = createTranslate(messages, "en-EN")
-t("direction", { count: 3, ordinal: true }) // Output: "Take the 3rd right."
+
+const translation = t("direction", { count: 3, ordinal: true })
+// Result: "Take the 3rd right."
 ```
 
 ### Type safety
@@ -114,21 +126,21 @@ Type safety in i18n ensures that only valid translation keys are used, catching 
 
 Locale validation ensures only predefined language keys, like `en-EN` or `de-DE`, are used to maintain consistency.
 
-![autocomplete-locale](https://github.com/user-attachments/assets/ecf8b1a4-39f8-42f6-b8e6-513e7c7b8d2d)
+![autocomplete-locale.svg](https://github.com/user-attachments/assets/ecf8b1a4-39f8-42f6-b8e6-513e7c7b8d2d)
 
 #### Translation keys
 
 Strict key validation ensures only valid translation keys are used.
 
-![autocomplete-key](https://github.com/user-attachments/assets/1ac61662-adf8-4566-b451-b19f623d4852)
+![autocomplete-key.svg](https://github.com/user-attachments/assets/1ac61662-adf8-4566-b451-b19f623d4852)
 
 #### Placeholders & Pluralization
 
 Supports placeholders and pluralization with type-safe suggestions for required properties.
 
-![autocomplete-placeholder](https://github.com/user-attachments/assets/25ec1261-5e71-44db-b51c-aded171d6563)
+![autocomplete-placeholder.svg](https://github.com/user-attachments/assets/25ec1261-5e71-44db-b51c-aded171d6563)
 
-![autocomplete-plural](https://github.com/user-attachments/assets/1977351d-af81-465e-876d-3263259a763a)
+![autocomplete-plural.svg](https://github.com/user-attachments/assets/1977351d-af81-465e-876d-3263259a763a)
 
 # Utility Functions
 
@@ -150,6 +162,9 @@ Flattens a nested object into a single-level object with dot-separated keys.
 ### Example
 
 ```tsx
+import { flattenObject } from "core-i18n"
+// const { flattenObject } = require("core-i18n") // legacy way
+
 const nestedObject = {
   car: {
     brand: "BMW",
@@ -158,8 +173,8 @@ const nestedObject = {
   }
 }
 
-const flattened = flattenObject(nestedObject)
-// Output: { "car.brand": "BMW", "car.model": "M5", "car.features.autopilot": true, "car.features.color": "red" }
+const flattenedObject = flattenObject(nestedObject)
+// Result: { "car.brand": "BMW", "car.model": "M5", "car.features.autopilot": true, "car.features.color": "red" }
 ```
 
 ```tsx
@@ -171,8 +186,8 @@ const nestedObject = {
   }
 }
 
-const flattened = flattenObject(nestedObject, "myPrefix")
-// Output: { "myPrefix.car.brand": "BMW" }
+const flattenedObject = flattenObject(nestedObject, "myPrefix")
+// Result: { "myPrefix.car.brand": "BMW" }
 ```
 
 ## `getPluralKey`
@@ -195,13 +210,16 @@ For detailed information about the rules and their usage, refer to the [Plural R
 ### Example
 
 ```tsx
+import { getPluralKey } from "core-i18n"
+// const { getPluralKey } = require("core-i18n") // legacy way
+
 const pluralRulesEnUS = new Intl.PluralRules("en-US")
 
-getPluralKey(0, pluralRulesEnUS)
-// Output: "zero"
+const pluralKey = getPluralKey(0, pluralRulesEnUS)
+// Result: "zero"
 
-getPluralKey(2, pluralRulesEnUS)
-// Output: "other"
+const pluralKey = getPluralKey(2, pluralRulesEnUS)
+// Result: "other"
 ```
 
 ## `replacePlaceholders`
@@ -224,12 +242,14 @@ Replaces placeholders in a string.
 ### Example
 
 ```tsx
-replacePlaceholders("ID: {id}, Price: {price}", {
+import { replacePlaceholders } from "core-i18n"
+// const { replacePlaceholders } = require("core-i18n") // legacy way
+
+const message = replacePlaceholders("ID: {id}, Price: {price}", {
   id: 123,
   price: 19.99
 })
-
-// Output: "ID: 123, Price: 19.99"
+// Result: "ID: 123, Price: 19.99"
 ```
 
 # Utility Types
@@ -239,6 +259,8 @@ replacePlaceholders("ID: {id}, Price: {price}", {
 Extracts the prefix from a string separated by `#`. If no `#` is present, the entire string is returned:
 
 ```tsx
+import type { ExtractPrefix } from "core-i18n"
+
 ExtractPrefix<"prefix#suffix">
 // Type Result: "prefix"
 
@@ -251,6 +273,8 @@ ExtractPrefix<"noSeparator">
 Flattens object keys into dot notation, supporting union objects.
 
 ```tsx
+import type { FlattenObjectKeys } from "core-i18n"
+
 type Account = {
   user: {
     name: string
@@ -290,6 +314,8 @@ FlattenObjectKeys<FailedState | SuccessState>
 Retrieves the type of a value for a flattened key in an object. Supports union objects and pluralized keys separated by a `#`.
 
 ```tsx
+import type { GetObjectKeyValue } from "core-i18n"
+
 type TestType = {
   car: {
     manufacturer: "BMW"
@@ -317,6 +343,8 @@ GetObjectKeyValue<TestType, "apple">
 Checks if a string matches the pattern `Prefix#Suffix`.
 
 ```tsx
+import type { IsPlural } from "core-i18n"
+
 IsPlural<"user#name" | "user#age", "user">
 // Type Result: true -> "user" is plural
 
@@ -334,6 +362,8 @@ IsPlural<"username" | "avatar", "username">
 Extracts placeholders from a string that match the `{placeholder}` pattern.
 
 ```tsx
+import type { ExtractPlaceholders } from "core-i18n"
+
 ExtractPlaceholders<"Hello, {firstname} {lastname}">
 // Type Result: "firstname" | "lastname"
 ```
