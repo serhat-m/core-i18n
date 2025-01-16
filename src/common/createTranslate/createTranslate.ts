@@ -14,18 +14,15 @@ import { flattenObject, getPluralKey, replacePlaceholders } from "../../utils"
  * const t = createTranslate({ "en-EN": { greeting: "Hello, {name}!" } as const }, "en-EN");
  * t("greeting", { name: "Serhat" }); // "Hello, Serhat!"
  */
-export function createTranslate<TMessages extends Messages, TLocale extends keyof TMessages extends string ? keyof TMessages : string>(
-  messages: TMessages,
-  locale: TLocale,
-) {
-  type LocaleMessages = TMessages[TLocale extends keyof TMessages ? TLocale : keyof TMessages] // {"en-EN": {...}, "de-DE": {...}} -> if locale defined: content from locale {...} -> if generic locale: union from locale messages: {...} | {...}
+export function createTranslate<TMessages extends Messages, TLocale extends keyof TMessages>(messages: TMessages, locale: TLocale) {
+  type LocaleMessages = TMessages[TLocale extends keyof TMessages ? TLocale : keyof TMessages] // {"en-EN": {...}, "de-DE": {...}} -> if locale defined: content from locale {...} -> if generic locale (e.g. to be defined by request parameters or similar): union from locale messages: {...} | {...}
   type KeysUnfiltered = FlattenObjectKeys<LocaleMessages> // "user.firstname#one"
   type KeysPrefix = ExtractPrefix<KeysUnfiltered> // "user.firstname#one" -> "user.firstname"
 
   const localeMessages = messages[locale]
 
   if (!localeMessages) {
-    throw new Error(`Cannot find messages for locale: ${locale}`)
+    throw new Error(`Cannot find messages for locale: ${String(locale)}`)
   }
 
   const flattenedLocaleMessages = flattenObject(localeMessages)
@@ -41,7 +38,7 @@ export function createTranslate<TMessages extends Messages, TLocale extends keyo
     ...params: GetParams<KeysUnfiltered, Key, GetObjectKeyValue<LocaleMessages, Key>>
   ) {
     const paramsObject = params[0]
-    const pluralRules = new Intl.PluralRules(locale, {
+    const pluralRules = new Intl.PluralRules(String(locale), {
       type: paramsObject && "ordinal" in paramsObject && paramsObject.ordinal ? "ordinal" : "cardinal",
     })
 
