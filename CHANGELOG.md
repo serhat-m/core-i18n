@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.5](https://github.com/serhat-m/core-i18n/compare/v1.1.4...v1.1.5) (2025-01-16)
+
+
+### Core
+
+* improve readme ([13b0872](https://github.com/serhat-m/core-i18n/commit/13b0872b3e4cd9c40f5f7383a28fef34cb709ff1))
+* locale type generic ([d7f1c71](https://github.com/serhat-m/core-i18n/commit/d7f1c7195faa54de3f1fdea3bef41ed510f85879))
+
+
+### Miscellaneous
+
+* general setup ([9c8e733](https://github.com/serhat-m/core-i18n/commit/9c8e733dbc5b3143428292daecac78623d1e4b3a))
+
 ## [1.1.4](https://github.com/serhat-m/core-i18n/compare/v1.1.3...v1.1.4) (2025-01-15)
 
 
