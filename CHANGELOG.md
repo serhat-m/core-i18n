@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/serhat-m/core-i18n/compare/v1.1.5...v1.1.6) (2025-01-20)
+
+
+### Core
+
+* improve jsdoc and readme ([#8](https://github.com/serhat-m/core-i18n/issues/8)) ([e465325](https://github.com/serhat-m/core-i18n/commit/e465325f500fee4156f4d0d08cd25bf0a7904324))
+
 ## [1.1.5](https://github.com/serhat-m/core-i18n/compare/v1.1.4...v1.1.5) (2025-01-16)
 
 
