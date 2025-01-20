@@ -10,7 +10,10 @@ Creates a translation function that retrieves localized messages based on a spec
 
 - **`messages`** `Record<string, Record<string, unknown>>`
     
-    Object with [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php) keys and their corresponding messages. Use `as const` to ensure that message values are inferred as literal types for better type safety: `{ "de-DE": {...} as const, "en-EN": {...} as const }`
+    Object with [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php) keys and their corresponding messages:
+    `{ "en-EN": {...}, "de-DE": {...} }`.
+    
+    **Note:** Use `as const` assertion in TypeScript to ensure message values are inferred as literal types for better type safety: `{ "en-EN": {...}, "de-DE": {...} } as const`.
     
 - **`locale`** `string`
     
@@ -25,9 +28,9 @@ import { createTranslate } from "core-i18n"
 
 // Define messages
 const messages = {
-  "en-EN": { email: "Email Address" } as const,
-  "de-DE": { email: "E-Mail-Adresse" } as const
-}
+  "en-EN": { email: "Email Address" },
+  "de-DE": { email: "E-Mail-Adresse" }
+} as const // TypeScript: as const assertion for better type safety
 
 // Create translate function
 const t = createTranslate(messages, "en-EN")
@@ -41,14 +44,14 @@ const translation = t("email")
 
 Placeholders are variables for content, following the pattern `{placeholder}`, where:
 
-1. **Curly Braces** `{}`: Mark the placeholder's start and end to distinguish it from regular text.
-2. **Placeholder Name**: A descriptive name inside the braces, e.g. `{name}` for a name.
+1. **Curly Braces** `{}`: Mark the placeholder’s start and end to distinguish it from regular text.
+2. **Placeholder Name**: A descriptive name inside the braces, e.g. `{name}` for a name.
 
 ```tsx
 const messages = {
-  "en-EN": { farewell: "Goodbye, {city}!" } as const,
-  "de-DE": { farewell: "Auf Wiedersehen, {city}!" } as const
-}
+  "en-EN": { farewell: "Goodbye, {city}!" },
+  "de-DE": { farewell: "Auf Wiedersehen, {city}!" }
+} as const // TypeScript: as const assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -72,8 +75,8 @@ const messages = {
     "availability#zero": "Item currently unavailable",
     "availability#one": "Only one item available",
     "availability#other": "Many items available"
-  } as const
-}
+  }
+} as const // TypeScript: as const assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -88,8 +91,8 @@ const messages = {
   "en-EN": {
     "apple#zero": "You have no apples.",
     "apple#other": "You have {count} apples."
-  } as const
-}
+  }
+} as const // TypeScript: as const assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -99,7 +102,7 @@ const translation = t("apple", { count: 0 })
 
 ### Ordinal plurals
 
-Ordinal numbers are also supported (e.g. "1st", "2nd", "3rd" in English). The `ordinal` option ensures the correct plural key is selected based on the ordinal value.
+Ordinal numbers are also supported (e.g. “1st”, “2nd”, “3rd” in English). The `ordinal` option ensures the correct plural key is selected based on the ordinal value.
 
 ```tsx
 const messages = {
@@ -109,8 +112,8 @@ const messages = {
     "direction#two": "Take the {count}nd right.",
     "direction#few": "Take the {count}rd right.",
     "direction#other": "Take the {count}th right."
-  } as const
-}
+  }
+} as const // TypeScript: as const assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -126,21 +129,21 @@ Type safety in i18n ensures that only valid translation keys are used, catching 
 
 Locale validation ensures only predefined language keys, like `en-EN` or `de-DE`, are used to maintain consistency.
 
-![autocomplete-locale.svg](https://github.com/user-attachments/assets/ecf8b1a4-39f8-42f6-b8e6-513e7c7b8d2d)
+![autocomplete-locale](https://github.com/user-attachments/assets/7c34350e-8d11-4f7d-948d-6f094ff1353a)
 
 #### Translation keys
 
 Strict key validation ensures only valid translation keys are used.
 
-![autocomplete-key.svg](https://github.com/user-attachments/assets/1ac61662-adf8-4566-b451-b19f623d4852)
+![autocomplete-key](https://github.com/user-attachments/assets/02c29ddf-8dbf-4279-a27d-7f667515c752)
 
 #### Placeholders & Pluralization
 
 Supports placeholders and pluralization with type-safe suggestions for required properties.
 
-![autocomplete-placeholder.svg](https://github.com/user-attachments/assets/25ec1261-5e71-44db-b51c-aded171d6563)
+![autocomplete-placeholder](https://github.com/user-attachments/assets/8634930c-0a79-4d8e-ad77-f359359bc1cf)
 
-![autocomplete-plural.svg](https://github.com/user-attachments/assets/1977351d-af81-465e-876d-3263259a763a)
+![autocomplete-plural](https://github.com/user-attachments/assets/17a55b12-76a3-4e2d-97f3-5d1c70c87efc)
 
 # Utility Functions
 
@@ -232,8 +235,8 @@ Replaces placeholders in a string.
     
     string containing placeholders in the `{placeholder}` pattern, where:
     
-    1. **Curly Braces** `{}`: Mark the placeholder's start and end to distinguish it from regular text.
-    2. **Placeholder Name**: A descriptive name inside the braces, e.g. `{name}` for a name.
+    1. **Curly Braces** `{}`: Mark the placeholder’s start and end to distinguish it from regular text.
+    2. **Placeholder Name**: A descriptive name inside the braces, e.g. `{name}` for a name.
 - **`placeholders`** `Record<string, string>`
     
     object with key-value pairs for placeholder replacement
