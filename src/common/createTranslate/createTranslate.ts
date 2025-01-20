@@ -3,16 +3,17 @@ import type { Messages } from "../../types"
 import { flattenObject, getPluralKey, replacePlaceholders } from "../../utils"
 
 /**
- * Creates a translation function for the given messages and locale.
+ * Creates a translation function that retrieves localized messages based on a specified locale. It supports placeholders in messages for dynamic content and handles plurals.
  *
- * @param messages - An object with locale keys e.g., `{ "de-DE": {...} as const, "en-EN": {...} as const }` and their corresponding messages.
- * **Note:** Use `as const` to ensure that message values are inferred as literal types for better type safety.
- * @param locale - BCP 47 language tag: https://www.techonthenet.com/js/language_tags.php
- * @returns A function to retrieve localized messages by key, supporting placeholders.
+ * @param messages - Object with [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php) keys and their corresponding messages: `{ "de-DE": {...}, "en-EN": {...} }`.
+ *
+ * **Note:** Use `as const` assertion in TypeScript to ensure message values are inferred as literal types for better type safety: `{ "de-DE": {...}, "en-EN": {...} } as const`.
+ * @param locale - key of `messages`
+ * @returns Translation function to retrieve localized messages.
  *
  * @example
- * const t = createTranslate({ "en-EN": { greeting: "Hello, {name}!" } as const }, "en-EN");
- * t("greeting", { name: "Serhat" }); // "Hello, Serhat!"
+ * const t = createTranslate({ "en-EN": { greeting: "Hello, {name}!" } } as const, "en-EN")
+ * const translation = t("greeting", { name: "Serhat" }) // Result: "Hello, Serhat!"
  */
 export function createTranslate<TMessages extends Messages, TLocale extends keyof TMessages>(messages: TMessages, locale: TLocale) {
   type LocaleMessages = TMessages[TLocale extends keyof TMessages ? TLocale : keyof TMessages] // {"en-EN": {...}, "de-DE": {...}} -> if locale defined: content from locale {...} -> if generic locale (e.g. to be defined by request parameters or similar): union from locale messages: {...} | {...}

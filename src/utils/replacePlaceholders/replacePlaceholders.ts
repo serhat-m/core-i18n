@@ -11,7 +11,7 @@ import type { ExtractPlaceholders } from "../../types"
  *
  * @example
  * replacePlaceholders("Hello, {name}! You have {count} new messages.", { name: "Joana", count: 5 })
- * // Output: "Hello, Joana! You have 5 new messages."
+ * // Result: "Hello, Joana! You have 5 new messages."
  */
 export function replacePlaceholders<TValue extends string>(
   value: TValue,
