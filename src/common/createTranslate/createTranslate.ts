@@ -5,9 +5,9 @@ import { flattenObject, getPluralKey, replacePlaceholders } from "../../utils"
 /**
  * Creates a translation function that retrieves localized messages based on a specified locale. It supports placeholders in messages for dynamic content and handles plurals.
  *
- * @param messages - Object with [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php) keys and their corresponding messages: `{ "de-DE": {...}, "en-EN": {...} }`.
+ * @param messages - Object with [BCP 47 language tag](https://www.techonthenet.com/js/language_tags.php) keys and their corresponding messages: `{ "en-EN": {...}, "de-DE": {...} }`.
  *
- * **Note:** Use `as const` assertion in TypeScript to ensure message values are inferred as literal types for better type safety: `{ "de-DE": {...}, "en-EN": {...} } as const`.
+ * **Note:** Use `as const` assertion in TypeScript to ensure message values are inferred as literal types for better type safety: `{ "en-EN": {...}, "de-DE": {...} } as const`.
  * @param locale - key of `messages`
  * @returns Translation function to retrieve localized messages.
  *
