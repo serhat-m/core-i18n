@@ -29,8 +29,8 @@ import { createTranslate } from "core-i18n"
 // Define messages
 const messages = {
   "en-EN": { email: "Email Address" },
-  "de-DE": { email: "E-Mail-Adresse" }
-} as const // TypeScript: as const assertion for better type safety
+  "de-DE": { email: "E-Mail-Adresse" },
+} as const // TypeScript: "as const" assertion for better type safety
 
 // Create translate function
 const t = createTranslate(messages, "en-EN")
@@ -50,8 +50,8 @@ Placeholders are variables for content, following the pattern `{placeholder}`, w
 ```tsx
 const messages = {
   "en-EN": { farewell: "Goodbye, {city}!" },
-  "de-DE": { farewell: "Auf Wiedersehen, {city}!" }
-} as const // TypeScript: as const assertion for better type safety
+  "de-DE": { farewell: "Auf Wiedersehen, {city}!" },
+} as const // TypeScript: "as const" assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -74,9 +74,9 @@ const messages = {
   "en-EN": {
     "availability#zero": "Item currently unavailable",
     "availability#one": "Only one item available",
-    "availability#other": "Many items available"
-  }
-} as const // TypeScript: as const assertion for better type safety
+    "availability#other": "Many items available",
+  },
+} as const // TypeScript: "as const" assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -90,9 +90,9 @@ Special translations for `{ count: 0 }` are allowed to enable more natural langu
 const messages = {
   "en-EN": {
     "apple#zero": "You have no apples.",
-    "apple#other": "You have {count} apples."
-  }
-} as const // TypeScript: as const assertion for better type safety
+    "apple#other": "You have {count} apples.",
+  },
+} as const // TypeScript: "as const" assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -111,9 +111,9 @@ const messages = {
     "direction#one": "Take the {count}st right.",
     "direction#two": "Take the {count}nd right.",
     "direction#few": "Take the {count}rd right.",
-    "direction#other": "Take the {count}th right."
-  }
-} as const // TypeScript: as const assertion for better type safety
+    "direction#other": "Take the {count}th right.",
+  },
+} as const // TypeScript: "as const" assertion for better type safety
 
 const t = createTranslate(messages, "en-EN")
 
@@ -172,8 +172,8 @@ const nestedObject = {
   car: {
     brand: "BMW",
     model: "M5",
-    features: { autopilot: true, color: "red" }
-  }
+    features: { autopilot: true, color: "red" },
+  },
 }
 
 const flattenedObject = flattenObject(nestedObject)
@@ -185,8 +185,8 @@ const flattenedObject = flattenObject(nestedObject)
 
 const nestedObject = {
   car: {
-    brand: "BMW"
-  }
+    brand: "BMW",
+  },
 }
 
 const flattenedObject = flattenObject(nestedObject, "myPrefix")
@@ -250,7 +250,7 @@ import { replacePlaceholders } from "core-i18n"
 
 const message = replacePlaceholders("ID: {id}, Price: {price}", {
   id: 123,
-  price: 19.99
+  price: 19.99,
 })
 // Result: "ID: 123, Price: 19.99"
 ```
