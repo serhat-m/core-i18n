@@ -10,9 +10,7 @@
   "private": false,
   "author": "Serhat Mutlu",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
   "exports": {
@@ -43,11 +41,11 @@
     "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
-    "@types/node": "22.10.5",
+    "@types/node": "22.10.7",
     "husky": "9.1.7",
-    "lint-staged": "15.3.0",
+    "lint-staged": "15.4.1",
     "tsup": "^8.3.5",
-    "typescript": "5.7.2",
+    "typescript": "5.7.3",
     "vitest": "2.1.8"
   },
   "keywords": [
@@ -66,9 +64,7 @@
     "language"
   ],
   "lint-staged": {
-    "**/*.{js,mjs,cjs,ts,mts,jsx,tsx,json}": [
-      "biome check --write"
-    ]
+    "**/*.{js,mjs,cjs,ts,mts,jsx,tsx,json}": ["biome check --write"]
   },
   "version": "1.1.5"
 }
