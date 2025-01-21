@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.7](https://github.com/serhat-m/core-i18n/compare/v1.1.6...v1.1.7) (2025-01-21)
+
+
+### Core
+
+* update createTranslate jsdoc ([b5a2521](https://github.com/serhat-m/core-i18n/commit/b5a2521c24b751f3f97f7cf9ca63a5b89db43800))
+* update readme ([9f29876](https://github.com/serhat-m/core-i18n/commit/9f29876dc2d15d8aac0326b9f4211cc65212fc5a))
+
+
+### Miscellaneous
+
+* update dependencies ([3b06f65](https://github.com/serhat-m/core-i18n/commit/3b06f653a450b4af3ee06814cd3b1983a71c983f))
+
 ## [1.1.6](https://github.com/serhat-m/core-i18n/compare/v1.1.5...v1.1.6) (2025-01-20)
 
 
