@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/serhat-m/core-i18n/compare/v1.1.7...v1.1.8) (2025-03-17)
+
+
+### Miscellaneous
+
+* update dev dependencies ([dec6231](https://github.com/serhat-m/core-i18n/commit/dec62315e2606f878ca01c280ff2b2927873025b))
+
 ## [1.1.7](https://github.com/serhat-m/core-i18n/compare/v1.1.6...v1.1.7) (2025-01-21)
 
 
