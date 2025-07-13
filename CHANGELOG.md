@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.9](https://github.com/serhat-m/core-i18n/compare/v1.1.8...v1.1.9) (2025-07-13)
+
+
+### Miscellaneous
+
+* update dev dependencies and migrate biome to v2 ([548a8ca](https://github.com/serhat-m/core-i18n/commit/548a8ca83a15fe2e2111ed222a0cb964ee417c8d))
+
 ## [1.1.8](https://github.com/serhat-m/core-i18n/compare/v1.1.7...v1.1.8) (2025-03-17)
 
 
