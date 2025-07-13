@@ -1,4 +1,8 @@
 export type {
+  Locale,
+  Messages,
+} from "./i18n.types"
+export type {
   ExtractPlaceholders,
   ExtractPluralKeys,
   ExtractPrefix,
@@ -7,8 +11,3 @@ export type {
   GetParams,
   IsPlural,
 } from "./utility.types"
-
-export type {
-  Locale,
-  Messages,
-} from "./i18n.types"
