@@ -1,5 +1,4 @@
-import type { ExtractPrefix, FlattenObjectKeys, GetObjectKeyValue, GetParams } from "../../types"
-import type { Messages } from "../../types"
+import type { ExtractPrefix, FlattenObjectKeys, GetObjectKeyValue, GetParams, Messages } from "../../types"
 import { flattenObject, getPluralKey, replacePlaceholders } from "../../utils"
 
 /**
