@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.10](https://github.com/serhat-m/core-i18n/compare/v1.1.9...v1.1.10) (2026-01-19)
+
+
+### Miscellaneous
+
+* remove engines and update package manager ([325a9d5](https://github.com/serhat-m/core-i18n/commit/325a9d54eb59a98b4de0e1776c163b9873fbbc85))
+* update dependencies ([67fece8](https://github.com/serhat-m/core-i18n/commit/67fece8257502cc50ba61c3258508ff8f3a01d5d))
+
 ## [1.1.9](https://github.com/serhat-m/core-i18n/compare/v1.1.8...v1.1.9) (2025-07-13)
 
 
