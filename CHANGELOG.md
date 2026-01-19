@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.11](https://github.com/serhat-m/core-i18n/compare/v1.1.10...v1.1.11) (2026-01-19)
+
+
+### Miscellaneous
+
+* update biome version ([6aa9283](https://github.com/serhat-m/core-i18n/commit/6aa928351247843086fdd5eaba2e2e49af7f0251))
+* update node version in workflows ([6cab6ad](https://github.com/serhat-m/core-i18n/commit/6cab6ad025909ecf1cb64bc3d945b0aaa7c1404d))
+
 ## [1.1.10](https://github.com/serhat-m/core-i18n/compare/v1.1.9...v1.1.10) (2026-01-19)
 
 
